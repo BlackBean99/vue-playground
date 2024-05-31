@@ -1,0 +1,32 @@
+<template>
+    <div>
+        name : <span>{{ nameData.name }}</span><br/>
+        x : <span>{{ calcData.x }}</span><br/>
+        y : <span>{{ calcData.y }}</span>
+    </div>
+</template>
+
+<script>
+import { reactive, onMounted } from 'vue';  // computed
+
+export default{
+    name:"CompositionApi",
+    setup(){
+        const nameData = reactive({ name:"" });
+        onMounted(()=>{ nameData.name = 'john' });
+
+        const calcData = reactive({ x:0, y:0 });
+        onMounted(()=>{
+            calcData.x = 10;
+            calcData.y = 20;
+        })
+
+        return { nameData, calcData }
+    }
+    
+
+}
+
+
+
+</script>
