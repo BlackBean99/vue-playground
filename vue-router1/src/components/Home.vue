@@ -1,18 +1,28 @@
-<template lang="">
-    <div>
+<template>
+    <div class="Home">
         <h1>Home</h1>
-        <img art="" src="../assets/logo.png"/>
+        <img alt="" src="../assets/logo.png" />
+
+        <br/>
+
+        <a v-bind:href="link">about</a>
+
     </div>
 </template>
+
 <script>
 export default {
-    
+    name: 'Home',
+    data(){
+        return{
+            link: "/about"
+        }
+    }
 }
 </script>
-<style lang="">
-.Home{
-    background-color: azure;
-    
 
-}
+<style scoped>
+.Home{
+    background-color: rgb(219, 238, 238);
+}    
 </style>
