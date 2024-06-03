@@ -27,7 +27,37 @@ app.post("/memberAdd", function(req, res){
     res.send({"result":result});    
 })
 
+app.post("/memberDel", (req, res)=>{
+    console.log("memberDel 접속성공");
 
+    let name = req.body.name;
+    const fi = memberDao.delete(name);
+
+    res.send({"result":fi});
+})
+
+app.post("/memberSelect", (req, res)=>{
+    console.log("memberSelect 접속성공");
+
+    let name = req.body.name;
+    const fm = memberDao.select(name);
+
+    res.send(fm);
+})
+
+app.post("/memberUpdate", (req, res)=>{
+    console.log("memberUpdate 접속성공");
+
+    let name = req.body.name;
+    let age = req.body.age;
+    let phone = req.body.phone;
+    let address = req.body.address;
+    let memo = req.body.memo;
+
+    const fu = memberDao.update(name, age, phone, address, memo);
+
+    res.send({"result":fu});
+})
 
 module.exports = app;
 
